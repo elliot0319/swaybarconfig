@@ -3,7 +3,7 @@
     "height": 24,
     "modules-left": ["sway/workspaces", "custom/word", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "cpu", "custom/weather", "clock", "idle_inhibitor"],
+    "modules-right": ["network", "cpu", "clock", "idle_inhibitor"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -72,16 +72,7 @@ grim -g - ~/Pictures/Nye\\ skærmbilleder/$(date +'Screenshot_%Y-%m-%d_%H%M%S.pn
         "format-icons": "",
         "max-length": 70
     },
-    "custom/weather": {
-        "format": "{}",
-        "tooltip": true,
-        "interval": 3600,
-        "exec": "waybar-wttr.py",
-        "exec-if": "/usr/lib/systemd/systemd-networkd-wait-online --ignore=lo --timeout=600 
---operational-state=dormant",
-        "return-type": "json"
-    },
-    "custom/cast": {
+       "custom/cast": {
         "format": "{icon} {}",
         "tooltip": true,
         "interval": 5,
