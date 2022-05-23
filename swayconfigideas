@@ -1,0 +1,12 @@
+##### Disable auto focus
+## in ~/.config/sway/config
+## The following is an example
+no_focus [window_role="browser" title="markdown preview"]
+
+# Use the following code to check out the layout tree of 
+# all open windows, containers, outputs, 
+# workspaces, and so on
+swaymsg -t get_tree 
+
+# Put mpv in there like so
+no_focus [class="mpv"]
