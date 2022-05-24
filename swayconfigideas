@@ -69,10 +69,10 @@ swaylock -d --screenshots --clock --indicator-idle-visible \
 --indicator-thickness 5 \
 --ignore-empty-password \
 --bs-hl-color d65d0e \
---ring-color 7c6f64 \
+--ring-color 59ACD8 \
 --ring-clear-color 7c6f64 \
 --ring-caps-lock-color 7c6f64 \
---ring-ver-color 7c6f64 \
+--ring-ver-color FFDD81 \
 --ring-wrong-color 7c6f64 \
 --key-hl-color ebdbb2 \
 --text-color fabd2f \
