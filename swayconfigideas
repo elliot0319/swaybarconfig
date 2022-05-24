@@ -21,7 +21,7 @@ cat /tmp/brightness || echo 100%)' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'exec $locking'
 
-## Custom Setting
+## Custom Setting 1
 set $lock_bg ~/Pictures/backgrounds/galen-crout-175291.jpg
 
 bindsym Alt+l exec swaylock --hide-keyboard-layout -i $lock_bg
@@ -39,3 +39,65 @@ exec swayidle -w \
          resume 'swaymsg "output * dpms on"' \
          after-resume 'swaymsg "output * enable"' \
          before-sleep 'swaylock --hide-keyboard-layout -f -c 000000 -i $lock_bg'
+## Custom Setting 2
+bindsym mod4+Shift+l exec $lock_path
+set $idle_path ~/.config/sway/scripts/idle.sh
+set $lock_path ~/.config/sway/scripts/lock.sh
+ 
+In main sway config with the rest of my exec/autostart commands:
+ 
+exec {
+    $idle_path
+}
+ 
+ 
+In ~/.config/sway/scripts/idle.sh:
+ 
+#!/bin/sh
+swayidle \
+timeout 60 '~/.config/sway/scripts/lock.sh --grace 10 --fade-in 0' \
+timeout 80 'swaymsg "output * dpms off"' \
+resume 'swaymsg "output * dpms on"' \
+before-sleep '~/.config/sway/scripts/lock.sh --fade-in 0'
+ 
+ 
+In ~/.config/sway/scripts/lock.sh:
+ 
+#!/bin/sh
+swaylock -d --screenshots --clock --indicator-idle-visible \
+--indicator-radius 100 \
+--indicator-thickness 5 \
+--ignore-empty-password \
+--bs-hl-color d65d0e \
+--ring-color 7c6f64 \
+--ring-clear-color 7c6f64 \
+--ring-caps-lock-color 7c6f64 \
+--ring-ver-color 7c6f64 \
+--ring-wrong-color 7c6f64 \
+--key-hl-color ebdbb2 \
+--text-color fabd2f \
+--text-clear-color fabd2f \
+--text-caps-lock-color fabd2f \
+--text-ver-color 83a598 \
+--text-wrong-color fb4934 \
+--font Iosevka Term Regular \
+--line-color 00000000 \
+--line-clear-color 00000000 \
+--line-caps-lock-color 00000000 \
+--line-ver-color 00000000 \
+--line-wrong-color 00000000 \
+--inside-color 00000088 \
+--inside-clear-color 00000088 \
+--inside-ver-color 00000088 \
+--inside-wrong-color 00000088 \
+--separator-color 00000000 \
+--fade-in \
+--effect-scale 0.5 --effect-blur 7x3 --effect-scale 2 \
+--effect-vignette 0.5:0.5 \
+
+# Fix this
+# 1. include ~/.config/sway/themes/scripts
+# 2. include ~/.config/sway/themes/templates
+# 3. Missing a required Wayland interface
+# 4. No need to include /etc/sway/themes/matchaldlfksj
+# 5. Check \ after "before-sleep"
