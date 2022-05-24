@@ -8,6 +8,7 @@ no_focus [window_role="browser" title="markdown preview"]
 # workspaces, and so on
 swaymsg -t get_tree 
 
+<<<<<<< HEAD
 # Put mpv in there like so
 no_focus [class="mpv"]
 
@@ -20,3 +21,7 @@ cat /tmp/brightness || echo 100%)' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'exec $locking'
 
+=======
+# Put mpv in there like so (It works!)
+no_focus [app_id="mpv"]
+>>>>>>> c6b8f2f34e1f5935a7c43bfd143781337d42ce3d
