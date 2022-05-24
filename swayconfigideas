@@ -10,3 +10,13 @@ swaymsg -t get_tree
 
 # Put mpv in there like so
 no_focus [class="mpv"]
+
+##### Swayidle config
+set $idle swayidle -w \
+    timeout 240 'light -G > /tmp/brightness && light -S 10' resume 'light -S $([ -f /tmp/brightness ] && 
+cat /tmp/brightness || echo 100%)' \
+    timeout 300 'exec $locking' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'exec $locking'
+
