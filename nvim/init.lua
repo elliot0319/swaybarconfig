@@ -1,0 +1,6 @@
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+vim.cmd "colorscheme tokyonight"
+require "user.cmp"
+require "user.lsp"
