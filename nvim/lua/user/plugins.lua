@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use 'folke/tokyonight.nvim' -- Theme
   -- use "EdenEast/nightfox.nvim" -- Theme
+  use 'kyazdani42/nvim-web-devicons' -- Devicon icon
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -63,6 +64,10 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server nvim-lsp-installer
 
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim' 
+  
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
